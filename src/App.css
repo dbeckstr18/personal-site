@@ -1,0 +1,48 @@
+/* The page wrapper controls the maximum readable width and side spacing. */
+.site-shell { max-width: 1000px; margin: 0 auto; padding: 0 48px; }
+
+/* Header styles: the logo stays left while the navigation stays right. */
+.site-header { display: flex; align-items: center; justify-content: space-between; padding: 34px 0; }
+.wordmark { font-size: 28px; font-weight: 700; letter-spacing: -2px; }
+.wordmark span { color: #255bca; }
+nav { display: flex; gap: 30px; font-size: 14px; color: #545b64; }
+nav a:hover, .text-link:hover { color: #255bca; }
+
+/* Intro styles control the large opening message and its call-to-action link. */
+.intro { padding: 94px 0 106px; }
+.eyebrow { color: #255bca; font-size: 14px; font-weight: 600; margin-bottom: 22px; }
+h1 { font-size: clamp(48px, 7.6vw, 82px); line-height: 1.08; font-weight: 500; letter-spacing: -0.055em; }
+h1 span { color: #757b83; }
+.intro-description { max-width: 410px; font-size: 19px; line-height: 1.7; color: #545b64; margin-top: 28px; }
+.text-link { display: inline-flex; align-items: center; gap: 18px; font-size: 14px; font-weight: 600; margin-top: 30px; border-bottom: 1px solid #b9bec5; padding-bottom: 5px; }
+
+/* Shared section layout: the heading uses the first column and content uses the wider second column. */
+.content-section { display: grid; grid-template-columns: 1fr 2.25fr; gap: 40px; border-top: 1px solid #dedfe1; padding: 38px 0 48px; }
+h2 { font-size: 14px; font-weight: 600; }
+.section-copy { font-size: 17px; color: #545b64; }
+
+/* Interests are small, wrapping labels; add another <li> in App.tsx to add an interest. */
+.interests { display: flex; flex-wrap: wrap; list-style: none; padding: 0; gap: 10px; margin: 22px 0 0; }
+.interests li { font-size: 13px; border: 1px solid #dedfe1; padding: 4px 12px; border-radius: 4px; color: #545b64; }
+
+/* Project styles control the title, status label, description, and supporting note. */
+.project-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+h3 { font-size: 23px; font-weight: 500; letter-spacing: -0.6px; }
+.project-status { color: #255bca; background: #edf2fc; font-size: 13px; border-radius: 4px; padding: 3px 10px; }
+.project p { color: #545b64; }
+.project .project-note { font-size: 14px; color: #656c75; margin-top: 10px; }
+
+/* Footer and accessibility styles. The skip link becomes visible when focused with a keyboard. */
+footer { border-top: 1px solid #dedfe1; margin-top: 32px; padding: 26px 0 32px; display: flex; justify-content: space-between; gap: 20px; color: #656c75; font-size: 13px; }
+.skip-link { position: absolute; top: -100px; background: #fcfcfb; padding: 12px; }
+.skip-link:focus { top: 12px; }
+
+/* On narrow screens, sections stack vertically and the page uses smaller spacing. */
+@media (max-width: 600px) {
+  .site-shell { padding: 0 24px; }
+  .site-header { padding: 24px 0; }
+  .intro { padding: 60px 0 70px; }
+  .intro-description { font-size: 17px; }
+  .content-section { grid-template-columns: 1fr; gap: 20px; padding: 28px 0 36px; }
+  footer { margin-top: 16px; flex-wrap: wrap; }
+}
