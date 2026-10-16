@@ -20,7 +20,7 @@ export default function App() {
     <div className="site-shell">
       <a className="skip-link" href="#main" onClick={event => { event.preventDefault(); const main = document.getElementById('main'); main?.focus(); main?.scrollIntoView() }}>Skip to content</a>
       <header className="site-header">
-        <a className="wordmark" href="#home" aria-label="Andrew Beckstrand, home">AB<span>.</span></a>
+        <a className="wordmark" href="#home" aria-label="Andrew Beckstrand, home">AB</a>
         <nav aria-label="Main navigation">
           <a href="#home" aria-current={!about ? 'page' : undefined}>Resume</a>
           <a href="#about" aria-current={about ? 'page' : undefined}>About</a>
@@ -31,7 +31,7 @@ export default function App() {
         <div className="contact-panel">
           <button className="contact-close text-button" aria-label="Close contact panel" onClick={() => contactDialog.current?.close()}>×</button>
           <p className="eyebrow">Get in touch</p>
-          <h2 id="contact-title">Let's connect<span>.</span></h2>
+          <h2 id="contact-title">Let's connect</h2>
           <div className="contact-email">
             <span className="contact-label">Email</span>
             <a href="mailto:awbeckstrand@gmail.com">awbeckstrand@gmail.com</a>
@@ -48,7 +48,7 @@ export default function App() {
         {about ? <>
           <section className="about-intro" aria-labelledby="about-title">
             <p className="eyebrow">A little about me</p>
-            <h1 id="about-title">Outside the classroom<span>.</span></h1>
+            <h1 id="about-title">Outside the classroom</h1>
             <p className="about-description">My name is Drew Beckstrand, and I'm from Holladay Utah. I am currently attending Brigham Young University, and in my free time I like to play guitar, be outdoors, mountain bike, and ski</p>
           </section>
           <section className="hobby" aria-labelledby="guitar-title">
@@ -72,7 +72,7 @@ export default function App() {
         </> : <>
         <section className="intro" aria-labelledby="intro-title">
           <p className="eyebrow">BYU · Applied & Computational Mathematics</p>
-          <h1 id="intro-title">Andrew<br />Beckstrand<span>.</span></h1>
+          <h1 id="intro-title">Andrew<br />Beckstrand</h1>
           <p className="intro-description">I study applied and computational mathematics at Brigham Young University. I'm interested in programming, applied data analysis, and local AI.</p>
           <div className="actions">
             <a className="button" href="/Andrew-Beckstrand-Resume.pdf" target="_blank" rel="noreferrer">View resume <span aria-hidden="true">↗</span></a>
