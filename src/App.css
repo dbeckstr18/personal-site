@@ -30,3 +30,27 @@ footer { border-top: 1px solid #dedfe1; padding: 24px 0 30px; display: flex; jus
   .intro-description { font-size: 17px; }
   .content-section { grid-template-columns: 1fr; gap: 12px; padding: 24px 0; }
 }
+
+.site-header nav { display: flex; gap: 24px; margin-left: auto; margin-right: 40px; font-size: 14px; }
+.site-header nav a { color: #656c75; }
+.site-header nav a[aria-current="page"] { color: #232629; box-shadow: 0 1px #255bca; }
+.about-intro { padding: 72px 0 64px; }
+.about-intro h1 { max-width: 700px; font-size: clamp(40px, 6vw, 64px); line-height: 1.08; }
+.about-description { max-width: 660px; margin-top: 28px; color: #545b64; font-size: 18px; line-height: 1.8; }
+.hobby { border-top: 1px solid #dedfe1; padding: 40px 0 56px; }
+.hobby-copy { display: grid; grid-template-columns: 1fr 2.25fr; gap: 40px; margin-bottom: 32px; }
+.hobby-copy h2 { font-size: 20px; letter-spacing: -.025em; }
+.hobby-copy p { font-size: 16px; color: #545b64; line-height: 1.85; }
+.photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+figure { margin: 0; min-width: 0; }
+.photo-grid img { display: block; width: 100%; height: auto; border-radius: 5px; }
+figcaption { font-size: 12px; color: #656c75; margin-top: 12px; line-height: 1.6; }
+@media (max-width: 600px) {
+  .site-header nav { margin-right: 0; gap: 20px; }
+  .header-contact { display: none; }
+  .about-intro { padding: 48px 0; }
+  .about-description { font-size: 17px; }
+  .hobby { padding: 28px 0 40px; }
+  .hobby-copy { grid-template-columns: 1fr; gap: 14px; margin-bottom: 24px; }
+  .photo-grid { grid-template-columns: 1fr; gap: 28px; }
+}
