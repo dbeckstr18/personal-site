@@ -1,7 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './App.css'
 
 export default function App() {
+  const contactDialog = useRef<HTMLDialogElement>(null)
+  const [copyStatus, setCopyStatus] = useState('')
+  const openContact = () => { setCopyStatus(''); contactDialog.current?.showModal() }
+  const copyEmail = async () => {
+    try { await navigator.clipboard.writeText('awbeckstrand@gmail.com'); setCopyStatus('Email copied') }
+    catch { setCopyStatus('Please select and copy the email address above.') }
+  }
   const [about, setAbout] = useState(window.location.hash === '#about')
   useEffect(() => {
     const update = () => { if (['#about', '#home', ''].includes(window.location.hash)) { setAbout(window.location.hash === '#about'); window.scrollTo(0, 0) } }
@@ -18,8 +25,25 @@ export default function App() {
           <a href="#home" aria-current={!about ? 'page' : undefined}>Resume</a>
           <a href="#about" aria-current={about ? 'page' : undefined}>About</a>
         </nav>
-        <a className="header-contact" href="mailto:awbeckstrand@gmail.com">Get in touch <span aria-hidden="true">↗</span></a>
+        <button className="header-contact text-button" onClick={openContact} aria-haspopup="dialog">Get in touch <span aria-hidden="true">↗</span></button>
       </header>
+      <dialog className="contact-dialog" ref={contactDialog} aria-labelledby="contact-title" onClick={event => { if (event.target === event.currentTarget) contactDialog.current?.close() }}>
+        <div className="contact-panel">
+          <button className="contact-close text-button" aria-label="Close contact panel" onClick={() => contactDialog.current?.close()}>×</button>
+          <p className="eyebrow">Get in touch</p>
+          <h2 id="contact-title">Let's connect<span>.</span></h2>
+          <div className="contact-email">
+            <span className="contact-label">Email</span>
+            <a href="mailto:awbeckstrand@gmail.com">awbeckstrand@gmail.com</a>
+            <button className="button" onClick={copyEmail}>Copy email address</button>
+            <p className="copy-status" role="status">{copyStatus}</p>
+          </div>
+          <div className="contact-profiles">
+            <a href="https://www.linkedin.com/in/drew-beckstrand" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/dbeckstr18" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </dialog>
       <main id="main">
         {about ? <>
           <section className="about-intro" aria-labelledby="about-title">
@@ -62,14 +86,14 @@ export default function App() {
         <section className="content-section" aria-labelledby="connect-title">
           <h2 id="connect-title">Connect</h2>
           <div className="social-links">
-            <a href="mailto:awbeckstrand@gmail.com">Email <span aria-hidden="true">↗</span></a>
+            <button className="text-button" onClick={openContact} aria-haspopup="dialog">Email <span aria-hidden="true">↗</span></button>
             <a href="https://www.linkedin.com/in/drew-beckstrand" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
             <a href="https://github.com/dbeckstr18" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
           </div>
         </section>
         </>}
       </main>
-      <footer><span>Andrew Beckstrand</span><a href="mailto:awbeckstrand@gmail.com">awbeckstrand@gmail.com</a></footer>
+      <footer><span>Andrew Beckstrand</span><button className="text-button" onClick={openContact} aria-haspopup="dialog">awbeckstrand@gmail.com</button></footer>
     </div>
   )
 }

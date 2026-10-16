@@ -47,10 +47,34 @@ figure { margin: 0; min-width: 0; }
 figcaption { font-size: 12px; color: #656c75; margin-top: 12px; line-height: 1.6; }
 @media (max-width: 600px) {
   .site-header nav { margin-right: 0; gap: 20px; }
-  .header-contact { display: none; }
+  .header-contact { font-size: 12px; margin-left: 20px; }
+  .header-contact span { display: none; }
+  .site-header nav { font-size: 12px; gap: 16px; }
   .about-intro { padding: 48px 0; }
   .about-description { font-size: 17px; }
   .hobby { padding: 28px 0 40px; }
   .hobby-copy { grid-template-columns: 1fr; gap: 14px; margin-bottom: 24px; }
   .photo-grid { grid-template-columns: 1fr; gap: 28px; }
 }
+
+.text-button { border: 0; background: transparent; color: inherit; font: inherit; padding: 0; cursor: pointer; text-align: left; }
+.header-contact.text-button { font-size: 14px; }
+button:focus-visible { outline: 2px solid #255bca; outline-offset: 6px; }
+button.button { border: 0; font-family: inherit; cursor: pointer; }
+.text-button:hover { color: #255bca; }
+.contact-dialog { width: min(480px, calc(100% - 32px)); max-height: calc(100dvh - 48px); padding: 0; border: 1px solid #dedfe1; border-radius: 10px; color: #232629; background: #fcfcfb; box-shadow: 0 24px 100px #0003; }
+.contact-dialog::backdrop { background: #18202e66; backdrop-filter: blur(4px); }
+body:has(.contact-dialog[open]) { overflow: hidden; }
+.contact-panel { position: relative; padding: 40px; }
+.contact-close { position: absolute; top: 15px; right: 20px; font-size: 28px; line-height: 1; padding: 4px; }
+.contact-panel .eyebrow { margin-bottom: 12px; }
+.contact-panel h2 { font-size: 36px; letter-spacing: -.045em; font-weight: 500; line-height: 1.2; }
+.contact-panel h2 span { color: #255bca; }
+.contact-email { margin-top: 32px; }
+.contact-label { display: block; font-size: 12px; color: #656c75; margin-bottom: 4px; }
+.contact-email a { display: block; font-size: 17px; overflow-wrap: anywhere; user-select: all; }
+.contact-email .button { margin-top: 18px; }
+.copy-status { min-height: 24px; margin-top: 10px; font-size: 12px; color: #545b64; }
+.contact-profiles { display: flex; gap: 28px; border-top: 1px solid #dedfe1; margin-top: 14px; padding-top: 22px; font-size: 14px; }
+.contact-profiles span { margin-left: 8px; }
+@media (max-width: 600px) { .header-contact.text-button { font-size: 12px; } .contact-panel { padding: 36px 24px 28px; } }
