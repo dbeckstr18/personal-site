@@ -18,7 +18,7 @@ export default function App() {
   useEffect(() => { document.title = about ? 'About | Andrew Beckstrand' : 'Andrew Beckstrand' }, [about])
   return (
     <div className="site-shell">
-      <a className="skip-link" href="#main">Skip to content</a>
+      <a className="skip-link" href="#main" onClick={event => { event.preventDefault(); const main = document.getElementById('main'); main?.focus(); main?.scrollIntoView() }}>Skip to content</a>
       <header className="site-header">
         <a className="wordmark" href="#home" aria-label="Andrew Beckstrand, home">AB<span>.</span></a>
         <nav aria-label="Main navigation">
@@ -44,7 +44,7 @@ export default function App() {
           </div>
         </div>
       </dialog>
-      <main id="main">
+      <main id="main" tabIndex={-1}>
         {about ? <>
           <section className="about-intro" aria-labelledby="about-title">
             <p className="eyebrow">A little about me</p>
@@ -56,7 +56,7 @@ export default function App() {
               <p>I started playing guitar in 2019, and I have enjoyed it as a hobby ever since. I like learning new songs, jamming with my friends, and playing for people. My favorite guitarist is Eddie Van Halen, and I also like to play John Mayer and Jack Johnson.</p>
             </div>
             <div className="photo-grid guitar-photos">
-              <figure><img src="/images/guitar-concert.jpg" width="553" height="553" alt="Drew playing electric guitar onstage with the Soul Research Foundation" /><figcaption>Playing a concert with the Soul Research Foundation.</figcaption></figure>
+              <figure><img src="/images/guitar-concert.jpg" width="1000" height="998" alt="Drew playing electric guitar onstage with the Soul Research Foundation" /><figcaption>Playing a concert with the Soul Research Foundation.</figcaption></figure>
               <figure><img src="/images/partscaster-transparent.png" width="1086" height="1448" alt="The custom blue partscaster guitar Drew built" loading="lazy" /><figcaption>The custom partscaster guitar I built over a summer</figcaption></figure>
             </div>
           </section>
@@ -65,8 +65,8 @@ export default function App() {
               <p>I started to take mountain biking seriously when I was 15. I joined my high school mountain biking team, and raced with them all 4 years of high school. I love to go fast downhill and test my limits on jumps and technical trails. Some of my favorite places in Utah to go are the Wasatch Crest Trail, Levitate trail in Draper, and Deer Valley bike park.</p>
             </div>
             <div className="photo-grid biking-photos">
-              <figure><img src="/images/nica-eagle-mountain.jpg" width="1488" height="2114" alt="Drew racing his mountain bike on a rocky course at Eagle Mountain" loading="lazy" /><figcaption>Racing with NICA at Eagle Mountain</figcaption></figure>
-              <figure><img src="/images/vernal-preride.jpg" width="1024" height="768" alt="Drew and a friend with their mountain bikes on a race course in Vernal" loading="lazy" /><figcaption>Pre-riding a race course in Vernal, UT</figcaption></figure>
+              <figure><img src="/images/nica-eagle-mountain.jpg" width="703" height="1000" alt="Drew racing his mountain bike on a rocky course at Eagle Mountain" loading="lazy" /><figcaption>Racing with NICA at Eagle Mountain</figcaption></figure>
+              <figure><img src="/images/vernal-preride.jpg" width="1000" height="750" alt="Drew and a friend with their mountain bikes on a race course in Vernal" loading="lazy" /><figcaption>Pre-riding a race course in Vernal, UT</figcaption></figure>
             </div>
           </section>
         </> : <>
