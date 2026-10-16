@@ -33,7 +33,7 @@ export default function App() {
             </div>
             <div className="photo-grid guitar-photos">
               <figure><img src="/images/guitar-concert.jpg" width="553" height="553" alt="Drew playing electric guitar onstage with the Soul Research Foundation" /><figcaption>Playing a concert with the Soul Research Foundation.</figcaption></figure>
-              <figure><img src="/images/partscaster.jpg" width="1536" height="2048" alt="The custom blue partscaster guitar Drew built" loading="lazy" /><figcaption>The custom partscaster guitar I built over a summer</figcaption></figure>
+              <figure><img src="/images/partscaster-transparent.png" width="1086" height="1448" alt="The custom blue partscaster guitar Drew built" loading="lazy" /><figcaption>The custom partscaster guitar I built over a summer</figcaption></figure>
             </div>
           </section>
           <section className="hobby" aria-labelledby="biking-title">
